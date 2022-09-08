@@ -74,6 +74,7 @@ class NFLScoresSensor(CoordinatorEntity):
         self._name = entry.data[CONF_NAME]
         self._icon = DEFAULT_ICON
         self._state = "PRE"
+        self._my_team_abbr = entry.data[CONF_TEAM_ID]
         self._detailed_state = None
         self._game_end_time = None
         self._game_length = None
@@ -133,7 +134,7 @@ class NFLScoresSensor(CoordinatorEntity):
         self._away_team_timeouts = None
         self._away_team_win_probability = None
         self._last_update = None
-        self._team_id = entry.data[CONF_TEAM_ID]
+        #self._team_id = entry.data[CONF_TEAM_ID]
         self.coordinator = hass.data[DOMAIN][entry.entry_id][COORDINATOR]
 
     @property
@@ -172,6 +173,7 @@ class NFLScoresSensor(CoordinatorEntity):
             return attrs
 
         attrs[ATTR_ATTRIBUTION] = ATTRIBUTION
+        attrs["my_team_abbr"] = self.coordinator.data["my_team_abbr"]
         attrs["detailed_state"] = self.coordinator.data["detailed_state"]
         attrs["game_end_time"] = self.coordinator.data["game_end_time"]
         attrs["game_length"] = self.coordinator.data["game_length"]
