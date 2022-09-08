@@ -155,6 +155,7 @@ async def async_get_state(config) -> dict:
             if r.status == 200:
                 data = await r.json()
 
+    values["my_team_abbr"] = team_id
     found_team = False
     if data is not None:
         for event in data["events"]:
@@ -528,6 +529,7 @@ async def async_clear_states(config) -> dict:
     values = {}
     # Reset values
     values = {
+        "my_team_abbr": None,
         "detailed_state": None,
         "game_end_time": None,
         "game_length": None,
