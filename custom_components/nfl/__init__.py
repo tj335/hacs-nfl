@@ -453,6 +453,32 @@ async def async_get_state(config) -> dict:
                     values["quarter"] = event["status"]["period"]
                     values["clock"] = event["status"]["displayClock"]
                     values["last_play"] = event["competitions"][0]["situation"]["lastPlay"]["text"]
+
+                    # Description of current drive, expressed like "1 play, 8 yards, 0:26"
+                    #values["current_drive_summary"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["description"]
+
+                    # Description of where current drive started, expressed like "LAR 16"
+                    #values["current_drive_start_position"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["start"]["text"]
+
+                    # Elapsed time of current drive, expressed like "0:26"
+                    #values["current_drive_elapsed_time"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["timeElapsed"]["displayValue"]
+
+                    # Current down, expressed as integer like "2"
+                    #values["down"] = event["competitions"][0]["situation"]["down"]
+
+                    # Current yard line, expressed as integer like "17"
+                    #values["yard_line"] = event["competitions"][0]["situation"]["yardLine"]
+
+                    # Number of yards remaining for 1st down, expressed as integer like "10"
+                    #values["distance_to_go"] = event["competitions"][0]["situation"]["distance"]
+
+                    # Short description of down and distance, expressed like "2nd & 10"
+                    #values["short_down_distance_text"] = event["competitions"][0]["situation"]["shortDownDistanceText"]
+
+                    # Indicator if team is in red zone( eg. "true" or "false")
+                    #values["in_red_zone"] = event["competitions"][0]["situation"]["isRedZone"]
+
+
                     try:
                         values["down_distance_text"] = event["competitions"][0]["situation"]["downDistanceText"]
                     except:
