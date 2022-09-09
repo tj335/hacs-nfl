@@ -443,6 +443,14 @@ async def async_get_state(config) -> dict:
                     values["quarter"] = None
                     values["clock"] = None
                     values["last_play"] = None
+                    values["current_drive_summary"] = None
+                    values["current_drive_start_position"] = None
+                    values["current_drive_elapsed_time"] = None
+                    values["down"] = None
+                    values["yard_line"] = None
+                    values["distance_to_go"] = None
+                    values["short_down_distance_text"] = None
+                    values["in_red_zone"] = None
                     values["down_distance_text"] = None
                     values["possession"] = None
                     values["home_team_timeouts"] = 3
@@ -455,29 +463,28 @@ async def async_get_state(config) -> dict:
                     values["last_play"] = event["competitions"][0]["situation"]["lastPlay"]["text"]
 
                     # Description of current drive, expressed like "1 play, 8 yards, 0:26"
-                    #values["current_drive_summary"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["description"]
+                    values["current_drive_summary"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["description"]
 
                     # Description of where current drive started, expressed like "LAR 16"
-                    #values["current_drive_start_position"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["start"]["text"]
+                    values["current_drive_start_position"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["start"]["text"]
 
                     # Elapsed time of current drive, expressed like "0:26"
-                    #values["current_drive_elapsed_time"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["timeElapsed"]["displayValue"]
+                    values["current_drive_elapsed_time"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["timeElapsed"]["displayValue"]
 
                     # Current down, expressed as integer like "2"
-                    #values["down"] = event["competitions"][0]["situation"]["down"]
+                    values["down"] = event["competitions"][0]["situation"]["down"]
 
                     # Current yard line, expressed as integer like "17"
-                    #values["yard_line"] = event["competitions"][0]["situation"]["yardLine"]
+                    values["yard_line"] = event["competitions"][0]["situation"]["yardLine"]
 
                     # Number of yards remaining for 1st down, expressed as integer like "10"
-                    #values["distance_to_go"] = event["competitions"][0]["situation"]["distance"]
+                    values["distance_to_go"] = event["competitions"][0]["situation"]["distance"]
 
                     # Short description of down and distance, expressed like "2nd & 10"
-                    #values["short_down_distance_text"] = event["competitions"][0]["situation"]["shortDownDistanceText"]
+                    values["short_down_distance_text"] = event["competitions"][0]["situation"]["shortDownDistanceText"]
 
                     # Indicator if team is in red zone( eg. "true" or "false")
-                    #values["in_red_zone"] = event["competitions"][0]["situation"]["isRedZone"]
-
+                    values["in_red_zone"] = event["competitions"][0]["situation"]["isRedZone"]
 
                     try:
                         values["down_distance_text"] = event["competitions"][0]["situation"]["downDistanceText"]
@@ -608,6 +615,14 @@ async def async_clear_states(config) -> dict:
         "quarter": None,
         "clock": None,
         "last_play": None,
+        "current_drive_summary": None,
+        "current_drive_start_position": None,
+        "current_drive_elapsed_time": None,
+        "down": None,
+        "yard_line": None,
+        "distance_to_go": None,
+        "short_down_distance_text": None,
+        "in_red_zone": None,
         "down_distance_text": None,
         "possession": None,
         "home_team_timeouts": None,
