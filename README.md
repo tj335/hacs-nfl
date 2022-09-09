@@ -20,7 +20,7 @@ The attributes available will change based on the sensor's state, a small number
 | Name | Value | Relevant States |
 | --- | --- | --- |
 | `my_team_abbr` | The abbreviation of your team, used to match against the home or away team. | `PRE` `IN` `POST` `BYE` |
-| `detailed_state` | A more detailed state of the sensor.  STATUS_SCHEDULED, etc. | `PRE` `IN` `POST` |
+| `detailed_state` | A more detailed state of the sensor.  STATUS_SCHEDULED, STATUS_IN_PROGRESS, etc. | `PRE` `IN` `POST` |
 | `game_end_time` | Date and time that the game ended | `POST` |
 | `game_length` | Length of the game | `POST` |
 | `date` | Date and time of the game | `PRE` `IN` `POST` |
