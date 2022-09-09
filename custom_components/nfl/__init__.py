@@ -463,28 +463,52 @@ async def async_get_state(config) -> dict:
                     values["last_play"] = event["competitions"][0]["situation"]["lastPlay"]["text"]
 
                     # Description of current drive, expressed like "1 play, 8 yards, 0:26"
-                    values["current_drive_summary"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["description"]
+                    try:
+                        values["current_drive_summary"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["description"]
+                    except:
+                        values["current_drive_summary"] = None
 
                     # Description of where current drive started, expressed like "LAR 16"
-                    values["current_drive_start_position"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["start"]["text"]
+                    try:
+                        values["current_drive_start_position"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["start"]["text"]
+                    except:
+                        values["current_drive_start_position"] = None
 
                     # Elapsed time of current drive, expressed like "0:26"
-                    values["current_drive_elapsed_time"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["timeElapsed"]["displayValue"]
+                    try:
+                        values["current_drive_elapsed_time"] = event["competitions"][0]["situation"]["lastPlay"]["drive"]["timeElapsed"]["displayValue"]
+                    except:
+                        values["current_drive_elapsed_time"] = None
 
                     # Current down, expressed as integer like "2"
-                    values["down"] = event["competitions"][0]["situation"]["down"]
+                    try:
+                        values["down"] = event["competitions"][0]["situation"]["down"]
+                    except:
+                        values["down"] = None
 
                     # Current yard line, expressed as integer like "17"
-                    values["yard_line"] = event["competitions"][0]["situation"]["yardLine"]
+                    try:
+                        values["yard_line"] = event["competitions"][0]["situation"]["yardLine"]
+                    except:
+                        values["yard_line"] = None
 
                     # Number of yards remaining for 1st down, expressed as integer like "10"
-                    values["distance_to_go"] = event["competitions"][0]["situation"]["distance"]
+                    try:
+                        values["distance_to_go"] = event["competitions"][0]["situation"]["distance"]
+                    except:
+                        values["distance_to_go"] = None
 
                     # Short description of down and distance, expressed like "2nd & 10"
-                    values["short_down_distance_text"] = event["competitions"][0]["situation"]["shortDownDistanceText"]
+                    try:
+                        values["short_down_distance_text"] = event["competitions"][0]["situation"]["shortDownDistanceText"]
+                    except:
+                        values["short_down_distance_text"] = None
 
                     # Indicator if team is in red zone( eg. "true" or "false")
-                    values["in_red_zone"] = event["competitions"][0]["situation"]["isRedZone"]
+                    try:
+                        values["in_red_zone"] = event["competitions"][0]["situation"]["isRedZone"]
+                    except:
+                        values["in_red_zone"] = None
 
                     try:
                         values["down_distance_text"] = event["competitions"][0]["situation"]["downDistanceText"]
