@@ -335,7 +335,37 @@ async def async_get_state(config) -> dict:
                     values["home_team_record"] = event["competitions"][0]["competitors"][0]["records"][0]["summary"]
                 except:
                     values["home_team_record"] = None
-                
+
+                try:
+                    values["home_team_passing_leader_stats"] = event["competitions"][0]["competitors"][0]["leaders"][0]["leaders"][0]["displayValue"]
+                except:
+                    values["home_team_passing_leader_stats"] = None
+
+                try:
+                    values["home_team_passing_leader_name"] = event["competitions"][0]["competitors"][0]["leaders"][0]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["home_team_passing_leader_name"] = None
+
+                try:
+                    values["home_team_rushing_leader_stats"] = event["competitions"][0]["competitors"][0]["leaders"][1]["leaders"][0]["displayValue"]
+                except:
+                    values["home_team_rushing_leader_stats"] = None
+
+                try:
+                    values["home_team_rushing_leader_name"] = event["competitions"][0]["competitors"][0]["leaders"][1]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["home_team_rushing_leader_name"] = None
+
+                try:
+                    values["home_team_receiving_leader_stats"] = event["competitions"][0]["competitors"][0]["leaders"][2]["leaders"][0]["displayValue"]
+                except:
+                    values["home_team_receiving_leader_stats"] = None
+
+                try:
+                    values["home_team_receiving_leader_name"] = event["competitions"][0]["competitors"][0]["leaders"][2]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["home_team_receiving_leader_name"] = None
+       
                 try:
                     values["away_team_abbr"] = event["competitions"][0]["competitors"][1]["team"]["abbreviation"]
                 except:
@@ -396,7 +426,37 @@ async def async_get_state(config) -> dict:
                     values["away_team_record"] = event["competitions"][0]["competitors"][1]["records"][0]["summary"]
                 except:
                     values["away_team_record"] = None
-                
+
+                try:
+                    values["away_team_passing_leader_stats"] = event["competitions"][0]["competitors"][1]["leaders"][0]["leaders"][0]["displayValue"]
+                except:
+                    values["away_team_passing_leader_stats"] = None
+
+                try:
+                    values["away_team_passing_leader_name"] = event["competitions"][0]["competitors"][1]["leaders"][0]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["away_team_passing_leader_name"] = None
+
+                try:
+                    values["away_team_rushing_leader_stats"] = event["competitions"][0]["competitors"][1]["leaders"][1]["leaders"][0]["displayValue"]
+                except:
+                    values["away_team_rushing_leader_stats"] = None
+
+                try:
+                    values["away_team_rushing_leader_name"] = event["competitions"][0]["competitors"][1]["leaders"][1]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["away_team_rushing_leader_name"] = None
+
+                try:
+                    values["away_team_receiving_leader_stats"] = event["competitions"][0]["competitors"][1]["leaders"][2]["leaders"][0]["displayValue"]
+                except:
+                    values["away_team_receiving_leader_stats"] = None
+
+                try:
+                    values["away_team_receiving_leader_name"] = event["competitions"][0]["competitors"][1]["leaders"][2]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["away_team_receiving_leader_name"] = None
+
                 try:
                     values["kickoff_in"] = arrow.get(event["date"]).humanize()
                 except:
@@ -623,6 +683,12 @@ async def async_clear_states(config) -> dict:
         "home_team_ls_3": None,
         "home_team_ls_4": None,
         "home_team_record": None,
+        "home_team_passing_leader_stats": None,
+        "home_team_passing_leader_name": None,
+        "home_team_rushing_leader_stats": None,
+        "home_team_rushing_leader_name": None,
+        "home_team_receiving_leader_stats": None,
+        "home_team_receiving_leader_name": None,
         "away_team_abbr": None,
         "away_team_id":  None,
         "away_team_city": None,
@@ -635,6 +701,12 @@ async def async_clear_states(config) -> dict:
         "away_team_ls_3": None,
         "away_team_ls_4": None,
         "away_team_record": None,
+        "away_team_passing_leader_stats": None,
+        "away_team_passing_leader_name": None,
+        "away_team_rushing_leader_stats": None,
+        "away_team_rushing_leader_name": None,
+        "away_team_receiving_leader_stats": None,
+        "away_team_receiving_leader_name": None,
         "kickoff_in": None,
         "tv_network": None,
         "odds": None,
