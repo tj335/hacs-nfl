@@ -198,6 +198,11 @@ async def async_get_state(config) -> dict:
                     values["date"] = event["date"]
                 except:
                     values["date"] = None
+
+                try:
+                    values["week_number"] = event["week"]["number"]
+                except:
+                    values["week_number"] = None
                 
                 try:
                     values["attendance"] = event["competitions"][0]["attendance"]
@@ -544,6 +549,7 @@ async def async_get_state(config) -> dict:
             found_bye = False
             values = await async_clear_states(config)
             try: # look for byes in regular season
+                values["week_number"] = data["week"]["number"]
                 for bye_team in data["week"]["teamsOnBye"]:
                     if team_id.lower() == bye_team["abbreviation"].lower():
                         _LOGGER.debug("Bye week confirmed.")
@@ -562,6 +568,7 @@ async def async_get_state(config) -> dict:
                         values["last_update"] = arrow.now().format(arrow.FORMAT_W3C)
             except:
                 _LOGGER.debug("Team not found in active games or bye week list. Have you missed the playoffs?")
+                values["week_number"] = None
                 values["home_team_abbr"] = None
                 values["home_team_name"] = None
                 values["home_team_logo"] = None
@@ -591,6 +598,7 @@ async def async_clear_states(config) -> dict:
         "game_end_time": None,
         "game_length": None,
         "date": None,
+        "week_number": None,
         "attendance": None,
         "event_name": None,
         "event_short_name": None,
