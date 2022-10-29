@@ -79,6 +79,7 @@ class NFLScoresSensor(CoordinatorEntity):
         self._game_end_time = None
         self._game_length = None
         self._date = None
+        self._week_number = None
         self._attendance = None
         self._event_name = None
         self._event_short_name = None
@@ -186,6 +187,7 @@ class NFLScoresSensor(CoordinatorEntity):
         attrs["game_end_time"] = self.coordinator.data["game_end_time"]
         attrs["game_length"] = self.coordinator.data["game_length"]
         attrs["date"] = self.coordinator.data["date"]
+        attrs["week_number"] = self.coordinator.data["week_number"]
         attrs["attendance"] = self.coordinator.data["attendance"]
         attrs["event_name"] = self.coordinator.data["event_name"]
         attrs["event_short_name"] = self.coordinator.data["event_short_name"]
