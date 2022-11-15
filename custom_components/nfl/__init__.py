@@ -503,7 +503,37 @@ async def async_get_state(config) -> dict:
                     values["weather_temp"] = event["weather"]["temperature"]
                 except:
                     values["weather_temp"] = None
-                    
+
+                try:
+                    values["post_game_passing_leader_stats"] = event["competitions"][0]["leaders"][0]["leaders"][0]["displayValue"]
+                except:
+                    values["post_game_passing_leader_stats"] = None
+
+                try:
+                    values["post_game_passing_leader_name"] = event["competitions"][0]["leaders"][0]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["post_game_passing_leader_name"] = None
+
+                try:
+                    values["post_game_rushing_leader_stats"] = event["competitions"][0]["leaders"][1]["leaders"][0]["displayValue"]
+                except:
+                    values["post_game_rushing_leader_stats"] = None
+
+                try:
+                    values["post_game_rushing_leader_name"] = event["competitions"][0]["leaders"][1]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["post_game_rushing_leader_name"] = None
+
+                try:
+                    values["post_game_receiving_leader_stats"] = event["competitions"][0]["leaders"][2]["leaders"][0]["displayValue"]
+                except:
+                    values["post_game_receiving_leader_stats"] = None
+
+                try:
+                    values["post_game_receiving_leader_name"] = event["competitions"][0]["leaders"][2]["leaders"][0]["athlete"]["displayName"]
+                except:
+                    values["post_game_receiving_leader_name"] = None
+                  
                 if event["status"]["type"]["state"].lower() in ['pre', 'post']: # could use status.completed == true as well
                     values["quarter"] = None
                     values["clock"] = None
@@ -716,6 +746,12 @@ async def async_clear_states(config) -> dict:
         "headlines": None,
         "weather_conditions": None,
         "weather_temp": None,
+        "post_game_passing_leader_stats": None,
+        "post_game_passing_leader_name": None,
+        "post_game_rushing_leader_stats": None,
+        "post_game_rushing_leader_name": None,
+        "post_game_receiving_leader_stats": None,
+        "post_game_receiving_leader_name": None,
         "quarter": None,
         "clock": None,
         "last_play": None,
