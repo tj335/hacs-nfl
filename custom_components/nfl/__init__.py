@@ -330,6 +330,12 @@ async def async_get_state(config) -> dict:
                     values["home_team_ls_4"] = event["competitions"][0]["competitors"][0]["linescores"][3]["value"]
                 except:
                     values["home_team_ls_4"] = None
+
+                try:
+                    values["home_team_ls_ot"] = event["competitions"][0]["competitors"][0]["linescores"][4]["value"]
+                except:
+                    values["home_team_ls_ot"] = None
+
                 
                 try:
                     values["home_team_record"] = event["competitions"][0]["competitors"][0]["records"][0]["summary"]
@@ -421,6 +427,11 @@ async def async_get_state(config) -> dict:
                     values["away_team_ls_4"] = event["competitions"][0]["competitors"][1]["linescores"][3]["value"]
                 except:
                     values["away_team_ls_4"] = None
+
+                try:
+                    values["away_team_ls_ot"] = event["competitions"][0]["competitors"][1]["linescores"][4]["value"]
+                except:
+                    values["away_team_ls_ot"] = None
                 
                 try:
                     values["away_team_record"] = event["competitions"][0]["competitors"][1]["records"][0]["summary"]
@@ -712,6 +723,7 @@ async def async_clear_states(config) -> dict:
         "home_team_ls_2": None,
         "home_team_ls_3": None,
         "home_team_ls_4": None,
+        "home_team_ls_ot": None,
         "home_team_record": None,
         "home_team_passing_leader_stats": None,
         "home_team_passing_leader_name": None,
@@ -730,6 +742,7 @@ async def async_clear_states(config) -> dict:
         "away_team_ls_2": None,
         "away_team_ls_3": None,
         "away_team_ls_4": None,
+        "away_team_ls_ot": None,
         "away_team_record": None,
         "away_team_passing_leader_stats": None,
         "away_team_passing_leader_name": None,
