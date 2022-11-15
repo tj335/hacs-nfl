@@ -103,6 +103,7 @@ class NFLScoresSensor(CoordinatorEntity):
         self._home_team_ls_2 = None
         self._home_team_ls_3 = None
         self._home_team_ls_4 = None
+        self._home_team_ls_ot = None
         self._home_team_record = None
         self._home_team_passing_leader_stats = None
         self._home_team_passing_leader_name = None
@@ -121,6 +122,7 @@ class NFLScoresSensor(CoordinatorEntity):
         self._away_team_ls_2 = None
         self._away_team_ls_3 = None
         self._away_team_ls_4 = None
+        self._away_team_ls_ot = None
         self._away_team_record = None
         self._away_team_passing_leader_stats = None
         self._away_team_passing_leader_name = None
@@ -229,6 +231,7 @@ class NFLScoresSensor(CoordinatorEntity):
         attrs["home_team_ls_2"] = self.coordinator.data["home_team_ls_2"]
         attrs["home_team_ls_3"] = self.coordinator.data["home_team_ls_3"]
         attrs["home_team_ls_4"] = self.coordinator.data["home_team_ls_4"]
+        attrs["home_team_ls_ot"] = self.coordinator.data["home_team_ls_ot"]
         attrs["home_team_record"] = self.coordinator.data["home_team_record"]
         attrs["home_team_passing_leader_stats"] = self.coordinator.data["home_team_passing_leader_stats"]
         attrs["home_team_passing_leader_name"] = self.coordinator.data["home_team_passing_leader_name"]
@@ -247,6 +250,7 @@ class NFLScoresSensor(CoordinatorEntity):
         attrs["away_team_ls_2"] = self.coordinator.data["away_team_ls_2"]
         attrs["away_team_ls_3"] = self.coordinator.data["away_team_ls_3"]
         attrs["away_team_ls_4"] = self.coordinator.data["away_team_ls_4"]
+        attrs["away_team_ls_ot"] = self.coordinator.data["away_team_ls_ot"]
         attrs["away_team_record"] = self.coordinator.data["away_team_record"]
         attrs["away_team_passing_leader_stats"] = self.coordinator.data["away_team_passing_leader_stats"]
         attrs["away_team_passing_leader_name"] = self.coordinator.data["away_team_passing_leader_name"]
