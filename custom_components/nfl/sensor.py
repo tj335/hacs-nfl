@@ -137,6 +137,12 @@ class NFLScoresSensor(CoordinatorEntity):
         self._headlines = None
         self._weather_conditions = None
         self._weather_temp = None
+        self._post_game_passing_leader_stats = None
+        self._post_game_passing_leader_name = None
+        self._post_game_rushing_leader_stats = None
+        self._post_game_rushing_leader_name = None
+        self._post_game_receiving_leader_stats = None
+        self._post_game_receiving_leader_name = None
         self._quarter = None
         self._clock = None
         self._last_play = None
@@ -257,6 +263,12 @@ class NFLScoresSensor(CoordinatorEntity):
         attrs["headlines"] = self.coordinator.data["headlines"]
         attrs["weather_conditions"] = self.coordinator.data["weather_conditions"]
         attrs["weather_temp"] = self.coordinator.data["weather_temp"]
+        attrs["post_game_passing_leader_stats"] = self.coordinator.data["post_game_passing_leader_stats"]
+        attrs["post_game_passing_leader_name"] = self.coordinator.data["post_game_passing_leader_name"]
+        attrs["post_game_rushing_leader_stats"] = self.coordinator.data["post_game_rushing_leader_stats"]
+        attrs["post_game_rushing_leader_name"] = self.coordinator.data["post_game_rushing_leader_name"]
+        attrs["post_game_receiving_leader_stats"] = self.coordinator.data["post_game_receiving_leader_stats"]
+        attrs["post_game_receiving_leader_name"] = self.coordinator.data["post_game_receiving_leader_name"]
         attrs["quarter"] = self.coordinator.data["quarter"]
         attrs["clock"] = self.coordinator.data["clock"]
         attrs["last_play"] = self.coordinator.data["last_play"]
